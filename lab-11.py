@@ -1,5 +1,5 @@
 class Node:
-
+    
     def __init__(self, data):
         self.left = None
         self.right = None
@@ -64,6 +64,24 @@ class Node:
         else:
             return self.left.findmin()
 
+# making a method to delete a Node from Binary Search Tree
+
+    def delNodeFromBST(self, delNode):
+        if delNode < self.data:
+            if self.left is None:
+                return f"{str(delNode)} has been deleted"
+            return self.left.delNodeFromBST(delNode)
+        elif delNode > self.data:
+            if self.right is None:
+                return f"{str(delNode)} not Found"
+            return self.right.delNodeFromBST(delNode)
+        else:
+            print(f"{str(self.data)} has been deleted")
+
+        
+
+        
+
     # making a method to find a node with minimum value in Binary Search Tree
 
     # def minimumValueInBST(self):
@@ -87,6 +105,7 @@ class Node:
     #     return res
 
 
+
 objectofNodeclass = Node(12)
 objectofNodeclass.createBST(6)
 objectofNodeclass.createBST(18)
@@ -96,3 +115,5 @@ print(objectofNodeclass.findNodeInBST(6))
 print(objectofNodeclass.findmin())
 print(objectofNodeclass.findmax())
 # objectofNodeclass.minimumValueInBST()
+objectofNodeclass.delNodeFromBST(6)
+objectofNodeclass.printTree()
