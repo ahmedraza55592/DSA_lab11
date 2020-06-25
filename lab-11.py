@@ -5,9 +5,9 @@ class Node:
         self.right = None
         self.data = data
 
-# making a method to create a Binary Search Tree
+# making a method to insertNodeIn a Binary Search Tree
 
-    def createBST(self, data):
+    def insertNodeInBST(self, data):
 
         if self.data:
             if data < self.data:
@@ -48,7 +48,7 @@ class Node:
             self.right.printTree()
         print(self.data)
 
-    # finding the maximum and minimum value in a BST
+    # finding the maximum value in a BST
 
     def findmax(self):
         if self.right is None:
@@ -56,6 +56,8 @@ class Node:
             return f"{str(self.val)} is the maximum number"
         else: 
             return self.right.findmax()
+
+    # finding the maximum value in a BST
 
     def findmin(self):
         if self.left is None:
@@ -66,49 +68,12 @@ class Node:
 
 # making a method to delete a Node from Binary Search Tree
 
-    def delNodeFromBST(self, delNode):
-        if delNode < self.data:
-            if self.left is None:
-                return f"{str(delNode)} has been deleted"
-            return self.left.delNodeFromBST(delNode)
-        elif delNode > self.data:
-            if self.right is None:
-                return f"{str(delNode)} not Found"
-            return self.right.delNodeFromBST(delNode)
-        else:
-            print(f"{str(self.data)} has been deleted")
-
-        
-
-        
-
-    # making a method to find a node with minimum value in Binary Search Tree
-
-    # def minimumValueInBST(self):
-    #     if (self.data.left is not None):
-    #         self.data = self.data.left
-    #         return minimumValueInBST()
-
-    #     return self.data
-
-    # def maximumValueInBST(self):
-    #     if (self.current == None):
-    #         return float('-inf')
-
-    #     res = self.node.data
-    #     lres = maximumValueInBST(self.node.left)
-    #     rres = maximumValueInBST(self.node.right)
-    #     if (lres > res):
-    #         res = lres
-    #     if (rres > res):
-    #         res = rres
-    #     return res
 
 
 
 objectofNodeclass = Node(12)
-objectofNodeclass.createBST(6)
-objectofNodeclass.createBST(18)
+objectofNodeclass.insertNodeInBST(6)
+objectofNodeclass.insertNodeInBST(18)
 objectofNodeclass.printTree()
 print(objectofNodeclass.findNodeInBST(45))
 print(objectofNodeclass.findNodeInBST(6))
@@ -117,3 +82,4 @@ print(objectofNodeclass.findmax())
 # objectofNodeclass.minimumValueInBST()
 objectofNodeclass.delNodeFromBST(6)
 objectofNodeclass.printTree()
+objectofNodeclass.delNodeFromBST(6)
