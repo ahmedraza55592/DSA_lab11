@@ -4,6 +4,7 @@ class Node:
         self.left = None
         self.right = None
         self.data = data
+        self.root = None
 
 # making a method to insertNodeIn a Binary Search Tree
 
@@ -68,8 +69,33 @@ class Node:
 
 # making a method to delete a Node from Binary Search Tree
 
-
-
+    def delNodeFromBST(self, delNode):
+        if delNode < self.data:
+            print ("check1")
+            if self.left is not None:
+                print ("check1.1")
+                print (delNode)
+                print (self.data)
+                if delNode == self.data:
+                    print ("check1.2")
+                    data = None
+                return f"{str(delNode)} has been deleted"
+            return self.left.delNodeFromBST(delNode)
+        if delNode > self.data:
+            print ("check2")
+            if self.right is not None:
+                print ("check2.1")
+                if delNode == self.data:
+                    print ("check2.2")
+                    data = None
+                return f"{str(delNode)} not Found"
+            return self.right.delNodeFromBST(delNode)
+        if delNode == self.data:
+            print ("check2")
+            self.data = self.findmin()
+            return f"{str(delNode)} not Found"
+        # else:
+        #     print(f"{str(self.data)} has been deleted")
 
 objectofNodeclass = Node(12)
 objectofNodeclass.insertNodeInBST(6)
@@ -83,3 +109,5 @@ print(objectofNodeclass.findmax())
 objectofNodeclass.delNodeFromBST(6)
 objectofNodeclass.printTree()
 objectofNodeclass.delNodeFromBST(6)
+objectofNodeclass.delNodeFromBST(12)
+objectofNodeclass.printTree()
