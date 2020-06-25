@@ -4,6 +4,7 @@ class Node:
         self.left = None
         self.right = None
         self.data = data
+        self.root = None
 
 # making a method to create a Binary Search Tree
 
@@ -68,43 +69,31 @@ class Node:
 
     def delNodeFromBST(self, delNode):
         if delNode < self.data:
-            if self.left is None:
+            print ("check1")
+            if self.left is not None:
+                print ("check1.1")
+                print (delNode)
+                print (self.data)
+                if delNode == self.data:
+                    print ("check1.2")
+                    data = None
                 return f"{str(delNode)} has been deleted"
             return self.left.delNodeFromBST(delNode)
-        elif delNode > self.data:
-            if self.right is None:
+        if delNode > self.data:
+            print ("check2")
+            if self.right is not None:
+                print ("check2.1")
+                if delNode == self.data:
+                    print ("check2.2")
+                    data = None
                 return f"{str(delNode)} not Found"
             return self.right.delNodeFromBST(delNode)
-        else:
-            print(f"{str(self.data)} has been deleted")
-
-        
-
-        
-
-    # making a method to find a node with minimum value in Binary Search Tree
-
-    # def minimumValueInBST(self):
-    #     if (self.data.left is not None):
-    #         self.data = self.data.left
-    #         return minimumValueInBST()
-
-    #     return self.data
-
-    # def maximumValueInBST(self):
-    #     if (self.current == None):
-    #         return float('-inf')
-
-    #     res = self.node.data
-    #     lres = maximumValueInBST(self.node.left)
-    #     rres = maximumValueInBST(self.node.right)
-    #     if (lres > res):
-    #         res = lres
-    #     if (rres > res):
-    #         res = rres
-    #     return res
-
-
+        if delNode == self.data:
+            print ("check2")
+            self.data = self.findmin()
+            return f"{str(delNode)} not Found"
+        # else:
+        #     print(f"{str(self.data)} has been deleted")
 
 objectofNodeclass = Node(12)
 objectofNodeclass.createBST(6)
@@ -114,6 +103,5 @@ print(objectofNodeclass.findNodeInBST(45))
 print(objectofNodeclass.findNodeInBST(6))
 print(objectofNodeclass.findmin())
 print(objectofNodeclass.findmax())
-# objectofNodeclass.minimumValueInBST()
-objectofNodeclass.delNodeFromBST(6)
+objectofNodeclass.delNodeFromBST(12)
 objectofNodeclass.printTree()
